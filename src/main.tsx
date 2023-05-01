@@ -2,10 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
+import { App } from '~/modules/app'
 
-import { App } from '@/App'
-
-import './index.css'
+import './main.css'
 
 if (import.meta.env.MODE === 'production') {
   disableReactDevTools()
@@ -14,7 +13,7 @@ if (import.meta.env.MODE === 'production') {
 const root = createRoot(document.getElementById('root') as HTMLElement)
 
 if (import.meta.env.MODE === 'development') {
-  import('@/__mocks__/browser')
+  import('~/__mocks__/browser')
     .then(({ worker }) => {
       worker.start()
     })
