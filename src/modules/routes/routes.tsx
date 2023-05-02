@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter, redirect } from 'react-router-dom'
 
-import { Assets } from '~/modules/assets/assets.routes'
-import { Companies } from '~/modules/companies/companies.routes'
-import { Units } from '~/modules/units/units.routes'
-import { Users } from '~/modules/users/users.routes'
-import { WorkOrders } from '~/modules/work-orders/works-orders.routes'
+import { Assets } from '~/modules/assets'
+import { Companies } from '~/modules/companies'
+import { Units } from '~/modules/units'
+import { Users } from '~/modules/users'
+import { WorkOrders } from '~/modules/work-orders'
 
 import { Root } from '../root'
 import { ROUTE } from './routes.constants'
