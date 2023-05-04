@@ -9,7 +9,7 @@ import {
   TeamOutlined,
 } from '@ant-design/icons'
 import { Layout, Menu as MenuAndt, MenuProps } from 'antd'
-import { ROUTE } from '~/modules/routes/routes.constants'
+import { ROUTE } from '~/modules/routes/contants.routes'
 
 import { Logo } from './logo'
 

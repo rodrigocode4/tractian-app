@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { ROUTE } from '~/modules/routes/routes.constants'
+import { ROUTE } from '~/modules/routes/contants.routes'
 
 import LogoSVG from '../assets/logo.svg'
 
