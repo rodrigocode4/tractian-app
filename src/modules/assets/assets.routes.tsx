@@ -1,8 +1,18 @@
 import { type RouteObject } from 'react-router-dom'
 
-import { ROUTE } from '../routes/routes.constants'
+import { ROUTE } from '../routes/contants.routes'
+import * as Asset from './pages/asset.page'
+import * as Assets from './pages/assets.page'
 
-export const Assets: RouteObject = {
-  path: ROUTE.ASSETS,
-  element: <h1>Assets</h1>,
-}
+export const AssetsRoute: RouteObject[] = [
+  {
+    path: ROUTE.ASSETS,
+    loader: Assets.loader,
+    element: <Assets.AssetsPage />,
+  },
+  {
+    path: `${ROUTE.ASSETS}/:id`,
+    loader: Asset.loader,
+    element: <Asset.AssetPage />,
+  },
+]
