@@ -17,7 +17,7 @@ export const getColorStatus = (value: StatusType) => {
 }
 
 export const getTextStatus = (value: StatusType) => {
-  if (value === 'inOperation') 'In operation'
+  if (value === 'inOperation') return 'In operation'
   if (value === 'inAlert') return 'In alert'
   if (value === 'inDowntime') return 'In downtime'
   if (value === 'plannedStop') return 'Planned stop'
