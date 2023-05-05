@@ -4,7 +4,7 @@ import { Error } from '~/components/error'
 import { AssetsRoute } from '~/modules/assets'
 import { Companies } from '~/modules/companies'
 import { Units } from '~/modules/units'
-import { Users } from '~/modules/users'
+import { UsersRoute } from '~/modules/users'
 import { WorkOrders } from '~/modules/work-orders'
 
 import { Root } from '../root'
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: '/',
     errorElement: <Error />,
     element: <Root />,
-    children: [...AssetsRoute, Users, Units, Companies, WorkOrders],
+    children: [...AssetsRoute, UsersRoute, Units, Companies, WorkOrders],
   },
 ])
 

@@ -1,8 +1,10 @@
 import { type RouteObject } from 'react-router-dom'
 
 import { ROUTE } from '../routes/contants.routes'
+import * as Users from './pages/users.page'
 
-export const Users: RouteObject = {
+export const UsersRoute: RouteObject = {
   path: ROUTE.USERS,
-  element: <h1>Users</h1>,
+  loader: Users.loader,
+  element: <Users.UsersPage />,
 }
