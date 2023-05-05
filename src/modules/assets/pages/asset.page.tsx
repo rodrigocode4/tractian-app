@@ -4,13 +4,13 @@ import { Col, Divider, Layout, Progress, Row, Space, Statistic, Typography, them
 
 import { ROUTE } from '../../routes/contants.routes'
 import { getColorStatus, getTextStatus } from '../assets.helpers'
-import { getAssetsService } from '../assets.services'
+import { getAssetService } from '../assets.services'
 import { AssetLoaderDataType } from '../assets.types'
 import { AssetCard } from '../components/asset-card'
 import { HightChatsHealthHistory } from '../components/hight-chats-history'
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const { asset, users, company, unit } = await getAssetsService(params.id as string)
+  const { asset, users, company, unit } = await getAssetService(params.id as string)
   return json({ asset, users, company, unit })
 }
 

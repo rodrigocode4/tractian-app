@@ -1,21 +1,20 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
 import { Card, Col, Layout, List, Space, Statistic, Typography } from 'antd'
-import http from '~/infrastructure/http'
 
 import { ROUTE } from '../../routes/contants.routes'
 import { getColorHealth, getColorStatus, getTextStatus } from '../assets.helpers'
-import { AssetsSchema } from '../assets.schemas'
-import { AssetsType } from '../assets.types'
+import { getAllAssetsService } from '../assets.services'
+import { AssetsLoaderDataType } from '../assets.types'
 
 export async function loader() {
-  const { data } = await http.get<AssetsType>(ROUTE.ASSETS)
+  const assets = await getAllAssetsService()
 
-  return json({ data: AssetsSchema.parse(data) })
+  return json({ assets })
 }
 
 export function AssetsPage() {
-  const assets = useLoaderData() as { data: AssetsType }
+  const { assets } = useLoaderData() as AssetsLoaderDataType
 
   const navigate = useNavigate()
 
@@ -31,7 +30,7 @@ export function AssetsPage() {
           xl: 3,
           xxl: 4,
         }}
-        dataSource={assets.data}
+        dataSource={assets}
         renderItem={(item) => (
           <List.Item>
             <Card

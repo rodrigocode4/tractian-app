@@ -17,3 +17,7 @@ export type AssetLoaderDataType = {
   company: CompanyType
   unit: UnitType
 }
+
+export type AssetsLoaderDataType = {
+  assets: AssetsType
+}
