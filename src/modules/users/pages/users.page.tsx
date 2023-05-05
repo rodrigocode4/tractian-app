@@ -1,6 +1,7 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
 import { Card, Layout, List, Space, Typography } from 'antd'
+import { getCompanyById } from '~/modules/companies/companies.services'
 import { getUnitById } from '~/modules/units/units.services'
 
 import { ROUTE } from '../../routes/contants.routes'
@@ -13,7 +14,7 @@ export async function loader() {
   const users = await Promise.all(
     usersResult.map(async (user) => {
       const { name: unitName } = await getUnitById(user.unitId)
-      const { name: companyName } = await getUnitById(user.companyId)
+      const { name: companyName } = await getCompanyById(user.companyId)
 
       return {
         ...user,

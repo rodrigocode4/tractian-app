@@ -11,3 +11,7 @@ export type UserCustomType = UserType & { companyName: string; unitName: string 
 export type UsersLoaderDataType = {
   users: UserCustomType[]
 }
+
+export type UserLoaderDataType = {
+  user: UserCustomType
+}

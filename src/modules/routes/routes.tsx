@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: '/',
     errorElement: <Error />,
     element: <Root />,
-    children: [...AssetsRoute, UsersRoute, Units, Companies, WorkOrders],
+    children: [...AssetsRoute, ...UsersRoute, Units, Companies, WorkOrders],
   },
 ])
 
