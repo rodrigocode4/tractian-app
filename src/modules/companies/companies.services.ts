@@ -7,7 +7,5 @@ import { CompanyType } from './companies.types'
 export const getCompanyById = async (id: number) => {
   const companyResult = await http.get<CompanyType>(`${ROUTE.COMPANIES}/${id}`)
 
-  const company = CompanySchema.parse(companyResult.data)
-
-  return company
+  return CompanySchema.parse(companyResult.data)
 }

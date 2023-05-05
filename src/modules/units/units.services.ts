@@ -7,7 +7,5 @@ import { UnitType } from './units.types'
 export const getUnitById = async (id: number) => {
   const unitResult = await http.get<UnitType>(`${ROUTE.UNITS}/${id}`)
 
-  const unit = UnitSchema.parse(unitResult.data)
-
-  return unit
+  return UnitSchema.parse(unitResult.data)
 }
