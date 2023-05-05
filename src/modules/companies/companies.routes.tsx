@@ -1,8 +1,19 @@
 import { type RouteObject } from 'react-router-dom'
 
 import { ROUTE } from '../routes/contants.routes'
+import * as Companies from './pages/companies.page'
+import * as Company from './pages/company.page'
 
-export const Companies: RouteObject = {
-  path: ROUTE.COMPANIES,
-  element: <h1>Companies</h1>,
-}
+export const CompaniesRoute: RouteObject[] = [
+  {
+    path: ROUTE.COMPANIES,
+    loader: Companies.loader,
+    element: <Companies.CompaniesPage />,
+  },
+
+  {
+    path: `${ROUTE.COMPANIES}/:id`,
+    loader: Company.loader,
+    element: <Company.CompanyPage />,
+  },
+]

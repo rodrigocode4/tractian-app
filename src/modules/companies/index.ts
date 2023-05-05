@@ -1,1 +1,1 @@
-export { Companies } from './companies.routes'
+export { CompaniesRoute } from './companies.routes'

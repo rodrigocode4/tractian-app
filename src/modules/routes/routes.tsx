@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter, redirect } from 'react-router-dom'
 
 import { Error } from '~/components/error'
 import { AssetsRoute } from '~/modules/assets'
-import { Companies } from '~/modules/companies'
+import { CompaniesRoute } from '~/modules/companies'
 import { UnitsRoute } from '~/modules/units'
 import { UsersRoute } from '~/modules/users'
 import { WorkOrders } from '~/modules/work-orders'
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: '/',
     errorElement: <Error />,
     element: <Root />,
-    children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, Companies, WorkOrders],
+    children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, ...CompaniesRoute, WorkOrders],
   },
 ])
 
