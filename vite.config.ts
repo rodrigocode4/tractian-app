@@ -16,7 +16,7 @@ export default defineConfig({
     globals: true,
     watch: false,
     environment: 'happy-dom',
-    setupFiles: './src/setup-test.ts',
+    setupFiles: './src/infrastructure/setup-test.ts',
   },
   build: {
     sourcemap: true,

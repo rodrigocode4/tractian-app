@@ -17,7 +17,15 @@ export function Logo() {
         alignItems: 'center',
       }}
     >
-      <img src={LogoSVG} alt="Logotipo da Tractian" />
+      <img
+        src={LogoSVG}
+        alt="Logotipo da Tractian"
+        style={{
+          objectFit: 'contain',
+          maxHeight: '100%',
+          maxWidth: '100%',
+        }}
+      />
     </Link>
   )
 }

@@ -12,7 +12,7 @@ export async function loader() {
 
   const units = await Promise.all(
     unitsResult.map(async (unit) => {
-      const { name: companyName } = await getCompanyById(unit.companyId)
+      const { name: companyName } = await getCompanyById(`${unit.companyId}`)
 
       return {
         ...unit,
@@ -54,7 +54,7 @@ export function UnitsPage() {
                     {item.name}
                   </Typography.Text>
                 </Space>
-                <Space direction="horizontal" key={1}>
+                <Space direction="horizontal" key={2}>
                   <Typography.Text type="secondary">Company: </Typography.Text>
                   <Typography.Text type="secondary" strong>
                     {item.companyName}

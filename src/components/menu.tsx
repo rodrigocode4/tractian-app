@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import {
   ApartmentOutlined,
@@ -47,6 +47,7 @@ export function Menu() {
   const [collapsed, setCollapsed] = React.useState(false)
 
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   return (
     <Layout.Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
@@ -57,6 +58,7 @@ export function Menu() {
         defaultSelectedKeys={[ROUTE.ASSETS]}
         onClick={(e) => navigate(e.key)}
         items={menuItems}
+        selectedKeys={[pathname.replace(/\/\d+/, '')]}
       />
     </Layout.Sider>
   )
