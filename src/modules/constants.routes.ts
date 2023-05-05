@@ -4,5 +4,5 @@ export const ROUTE = {
   USERS: '/users',
   UNITS: '/units',
   COMPANIES: '/companies',
-  WORK_ORDERS: '/work-orders',
+  WORK_ORDERS: '/workorders',
 } as const

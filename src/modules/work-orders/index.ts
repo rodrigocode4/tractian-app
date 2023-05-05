@@ -1,1 +1,1 @@
-export { WorkOrders } from './works-orders.routes'
+export { WorkOrdersRoute } from './work-orders.routes'

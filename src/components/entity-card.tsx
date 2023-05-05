@@ -9,7 +9,7 @@ interface Props {
   name: string
 }
 
-export function AssetCard({ id, route, name }: Props) {
+export function EntityCard({ id, route, name }: Props) {
   const navigate = useNavigate()
 
   return (

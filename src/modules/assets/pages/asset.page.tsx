@@ -1,12 +1,13 @@
 import { LoaderFunctionArgs, json, useLoaderData } from 'react-router-dom'
 
 import { Col, Divider, Layout, Progress, Row, Space, Statistic, Typography, theme } from 'antd'
+import { EntityCard } from '~/components/entity-card'
+import { Palette } from '~/infrastructure/palette'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { getColorStatus, getTextStatus } from '../assets.helpers'
 import { getAssetService } from '../assets.services'
 import { AssetLoaderDataType } from '../assets.types'
-import { AssetCard } from '../components/asset-card'
 import { HightChatsHealthHistory } from '../components/hight-chats-history'
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -32,7 +33,7 @@ export function AssetPage() {
         <Progress
           showInfo
           percent={asset.healthscore}
-          strokeColor={{ '0%': '#870000', '50%': '#e29700', '100%': '#3f8600' }}
+          strokeColor={{ '0%': Palette.redDark, '50%': Palette.yellow, '100%': Palette.green }}
         />
       </Row>
       <Divider />
@@ -78,7 +79,7 @@ export function AssetPage() {
             }}
           >
             {users.map(({ id, name }) => (
-              <AssetCard key={id} id={id} route={ROUTE.USERS} name={name} />
+              <EntityCard key={id} id={id} route={ROUTE.USERS} name={name} />
             ))}
           </Space>
         </Col>
@@ -94,7 +95,7 @@ export function AssetPage() {
               justifyContent: 'center',
             }}
           >
-            <AssetCard id={company.id} route={ROUTE.COMPANIES} name={company.name} />
+            <EntityCard id={company.id} route={ROUTE.COMPANIES} name={company.name} />
           </Space>
         </Col>
         <Col flex={1}>
@@ -109,7 +110,7 @@ export function AssetPage() {
               justifyContent: 'center',
             }}
           >
-            <AssetCard id={unit.id} route={ROUTE.UNITS} name={unit.name} />
+            <EntityCard id={unit.id} route={ROUTE.UNITS} name={unit.name} />
           </Space>
         </Col>
       </Row>

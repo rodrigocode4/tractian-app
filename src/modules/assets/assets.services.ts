@@ -7,7 +7,7 @@ import { getUserByAssignedUserIds } from '../users/users.services'
 import { AssetSchema, AssetsSchema } from './assets.schemas'
 import { AssetType, AssetsType } from './assets.types'
 
-const getAssetById = async (id: string) => {
+export const getAssetById = async (id: string) => {
   const assetResult = await http.get<AssetType>(`${ROUTE.ASSETS}/${id}`)
 
   return AssetSchema.parse(assetResult.data)
@@ -18,8 +18,8 @@ export const getAssetService = async (id: string) => {
 
   const [users, company, unit] = await Promise.all([
     getUserByAssignedUserIds(asset.assignedUserIds),
-    getCompanyById(asset.companyId),
-    getUnitById(asset.unitId),
+    getCompanyById(`${asset.companyId}`),
+    getUnitById(`${asset.unitId}`),
   ])
 
   return {

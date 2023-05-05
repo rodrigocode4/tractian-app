@@ -5,6 +5,9 @@
 
 ## TODO
 
+- Improvements coverage tests
+- Improvements repeated code
+- add hook useMakeStyles (https://mui.com/system/styles/basics/)
 - Add loading pages
 - Add erro page:
   - not found (404)
@@ -14,7 +17,6 @@
 - Add a11y (A+/A-)
 - Add i18n
 - Add pipeline
-- Improvements coverage tests
 
 
 ## Installation

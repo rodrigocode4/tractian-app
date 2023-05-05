@@ -5,7 +5,7 @@ import { AssetsRoute } from '~/modules/assets'
 import { CompaniesRoute } from '~/modules/companies'
 import { UnitsRoute } from '~/modules/units'
 import { UsersRoute } from '~/modules/users'
-import { WorkOrders } from '~/modules/work-orders'
+import { WorkOrdersRoute } from '~/modules/work-orders'
 
 import { ROUTE } from './constants.routes'
 import { Root } from './root'
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: ROUTE.ROOT,
     errorElement: <Error />,
     element: <Root />,
-    children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, ...CompaniesRoute, WorkOrders],
+    children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, ...CompaniesRoute, ...WorkOrdersRoute],
   },
 ])
 
