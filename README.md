@@ -6,7 +6,7 @@
 ## TODO
 
 - Improvements coverage tests
-- Improvements repeated code
+- Improvements for code duplicated
 - add hook useMakeStyles (https://mui.com/system/styles/basics/)
 - Add loading pages
 - Add erro page:
@@ -22,19 +22,25 @@
 ## Installation
 
 ```Bash
-yarn install
+npm install
 ```
 
 ## Running in development
 
 ```Bash
-yarn dev
+npm dev
 ```
 
 ## Running tests
 
 ```Bash
-yarn test
+npm test
+```
+
+## Running build
+
+```Bash
+npm run build
 ```
 
 ## Used Technologies
