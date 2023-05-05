@@ -10,7 +10,7 @@ import { UnitLoaderDataType } from '../units.types'
 export async function loader({ params }: LoaderFunctionArgs) {
   const unitResult = await getUnitById(params.id as string)
 
-  const { name: companyName } = await getCompanyById(unitResult.companyId)
+  const { name: companyName } = await getCompanyById(`${unitResult.companyId}`)
 
   return json({
     unit: {

@@ -13,8 +13,8 @@ export async function loader() {
 
   const users = await Promise.all(
     usersResult.map(async (user) => {
-      const { name: unitName } = await getUnitById(user.unitId)
-      const { name: companyName } = await getCompanyById(user.companyId)
+      const { name: unitName } = await getUnitById(`${user.unitId}`)
+      const { name: companyName } = await getCompanyById(`${user.companyId}`)
 
       return {
         ...user,
