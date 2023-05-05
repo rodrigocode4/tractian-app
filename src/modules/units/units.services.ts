@@ -1,6 +1,6 @@
 import http from '~/infrastructure/http'
 
-import { ROUTE } from '../routes/contants.routes'
+import { ROUTE } from '../constants.routes'
 import { UnitSchema, UnitsSchema } from './units.schemas'
 import { UnitType, UnitsType } from './units.types'
 

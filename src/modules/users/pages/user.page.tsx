@@ -2,17 +2,17 @@ import { LoaderFunctionArgs, json, useLoaderData, useNavigate } from 'react-rout
 
 import { Card, Col, Layout, Row, Space, Typography, theme } from 'antd'
 import { getCompanyById } from '~/modules/companies/companies.services'
+import { ROUTE } from '~/modules/constants.routes'
 import { getUnitById } from '~/modules/units/units.services'
 
-import { ROUTE } from '../../routes/contants.routes'
 import { getUserById } from '../users.services'
 import { UserLoaderDataType } from '../users.types'
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const userResult = await getUserById(params.id as string)
 
-  const { name: unitName } = await getUnitById(userResult.unitId)
-  const { name: companyName } = await getCompanyById(userResult.companyId)
+  const { name: unitName } = await getUnitById(`${userResult.unitId}`)
+  const { name: companyName } = await getCompanyById(`${userResult.companyId}`)
 
   return json({
     user: {

@@ -1,6 +1,6 @@
 import { type RouteObject } from 'react-router-dom'
 
-import { ROUTE } from '../routes/contants.routes'
+import { ROUTE } from '../constants.routes'
 
 export const WorkOrders: RouteObject = {
   path: ROUTE.WORK_ORDERS,

@@ -7,16 +7,16 @@ import { UnitsRoute } from '~/modules/units'
 import { UsersRoute } from '~/modules/users'
 import { WorkOrders } from '~/modules/work-orders'
 
-import { Root } from '../root'
-import { ROUTE } from './contants.routes'
+import { ROUTE } from './constants.routes'
+import { Root } from './root'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: ROUTE.ROOT,
     loader: () => redirect(ROUTE.ASSETS),
   },
   {
-    path: '/',
+    path: ROUTE.ROOT,
     errorElement: <Error />,
     element: <Root />,
     children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, ...CompaniesRoute, WorkOrders],

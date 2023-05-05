@@ -1,8 +1,8 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
 import { Card, Col, Layout, List, Space, Statistic, Typography } from 'antd'
+import { ROUTE } from '~/modules/constants.routes'
 
-import { ROUTE } from '../../routes/contants.routes'
 import { getColorHealth, getColorStatus, getTextStatus } from '../assets.helpers'
 import { getAllAssetsService } from '../assets.services'
 import { AssetsLoaderDataType } from '../assets.types'

@@ -1,6 +1,6 @@
 import http from '~/infrastructure/http'
 
-import { ROUTE } from '../routes/contants.routes'
+import { ROUTE } from '../constants.routes'
 import { UserSchema, UsersSchema } from './users.schemas'
 import { UserType, UsersType } from './users.types'
 

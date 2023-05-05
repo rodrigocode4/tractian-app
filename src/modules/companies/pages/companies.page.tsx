@@ -2,8 +2,8 @@ import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
 import { Card, Layout, List, Space, Typography } from 'antd'
 import { getAllCompanies } from '~/modules/companies/companies.services'
+import { ROUTE } from '~/modules/constants.routes'
 
-import { ROUTE } from '../../routes/contants.routes'
 import { CompaniesLoaderDataType } from '../companies.types'
 
 export async function loader() {

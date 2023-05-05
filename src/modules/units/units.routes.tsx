@@ -1,6 +1,6 @@
 import { type RouteObject } from 'react-router-dom'
 
-import { ROUTE } from '../routes/contants.routes'
+import { ROUTE } from '../constants.routes'
 import * as Unit from './pages/unit.page'
 import * as Units from './pages/units.page'
 

@@ -1,7 +1,7 @@
 import http from '~/infrastructure/http'
 
 import { getCompanyById } from '../companies/companies.services'
-import { ROUTE } from '../routes/contants.routes'
+import { ROUTE } from '../constants.routes'
 import { getUnitById } from '../units/units.services'
 import { getUserByAssignedUserIds } from '../users/users.services'
 import { AssetSchema, AssetsSchema } from './assets.schemas'

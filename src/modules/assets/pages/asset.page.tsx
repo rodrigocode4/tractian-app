@@ -1,8 +1,8 @@
 import { LoaderFunctionArgs, json, useLoaderData } from 'react-router-dom'
 
 import { Col, Divider, Layout, Progress, Row, Space, Statistic, Typography, theme } from 'antd'
+import { ROUTE } from '~/modules/constants.routes'
 
-import { ROUTE } from '../../routes/contants.routes'
 import { getColorStatus, getTextStatus } from '../assets.helpers'
 import { getAssetService } from '../assets.services'
 import { AssetLoaderDataType } from '../assets.types'

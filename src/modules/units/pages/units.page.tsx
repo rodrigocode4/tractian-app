@@ -2,9 +2,9 @@ import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
 import { Card, Layout, List, Space, Typography } from 'antd'
 import { getCompanyById } from '~/modules/companies/companies.services'
+import { ROUTE } from '~/modules/constants.routes'
 import { getAllUnits } from '~/modules/units/units.services'
 
-import { ROUTE } from '../../routes/contants.routes'
 import { UnitsLoaderDataType } from '../units.types'
 
 export async function loader() {
