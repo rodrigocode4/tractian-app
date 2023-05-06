@@ -1,14 +1,5 @@
 import '@testing-library/jest-dom'
-import { server } from '~/infrastructure/__mocks__/server'
 
 beforeAll(() => {
-  server.listen({ onUnhandledRequest: 'error' })
-})
-
-afterEach(() => {
-  server.resetHandlers()
-})
-
-afterAll(() => {
-  server.close()
+  process.env.VITE_BASE_URL = 'http://test.com'
 })

@@ -31,9 +31,11 @@ export function WorkOrdersPage() {
         }}
         dataSource={workOrders}
         renderItem={(item) => (
-          <List.Item>
+          <List.Item
+            data-testid="work-order-item"
+            onClick={() => navigate(`${ROUTE.WORK_ORDERS}/${item.id}`)}
+          >
             <Card
-              onClick={() => navigate(`${ROUTE.WORK_ORDERS}/${item.id}`)}
               hoverable
               title={item.title}
               actions={[
