@@ -71,7 +71,6 @@
     "happy-dom": "^8.x",
     "husky": "^8.x",
     "lint-staged": "^13.x",
-    "msw": "^1.x",
     "prettier": "^2.x",
     "stylelint": "^15.x",
     "stylelint-config-standard": "^30.x",
@@ -79,9 +78,6 @@
     "vite": "^4.x",
     "vitest": "^0.x",
     "web-vitals": "^3.x"
-  },
-  "msw": {
-    "workerDirectory": "public"
   },
   "browserslist": {
     "production": [
