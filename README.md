@@ -6,13 +6,6 @@
 ## TODO
 
 - Improvements coverage tests
-- Improvements for code duplicated
-- add hook useMakeStyles (https://mui.com/system/styles/basics/)
-- Add loading pages
-- Add erro page:
-  - not found (404)
-  - internal server (500)
-  - zod validation
 - Add dark mode
 - Add a11y (A+/A-)
 - Add i18n
@@ -22,13 +15,13 @@
 ## Installation
 
 ```Bash
-npm install
+npm install --legacy-peer-dep
 ```
 
 ## Running in development
 
 ```Bash
-npm dev
+npm run dev
 ```
 
 ## Running tests

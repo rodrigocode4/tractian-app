@@ -5,6 +5,7 @@ import { Avatar, Col, Divider, List, Row, Space, Statistic, Typography, theme } 
 import { EntityCard } from '~/components/entity-card'
 import { PageContainer } from '~/components/page-container'
 import { Palette } from '~/infrastructure/palette'
+import { makeStyles } from '~/infrastructure/styles'
 import { getAssetById } from '~/modules/assets/assets.services'
 import { ROUTE } from '~/modules/constants.routes'
 import { getUserById } from '~/modules/users/users.services'
@@ -26,6 +27,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export function WorkOrderPage() {
   const { workOrder, asset, users } = useLoaderData() as WorkOrderLoaderDataType
+  const styles = useStyles()
 
   const {
     token: { colorInfoText },
@@ -35,10 +37,7 @@ export function WorkOrderPage() {
     <PageContainer>
       <Typography.Title style={{ alignSelf: 'center' }}>{workOrder.title}</Typography.Title>
       <Divider />
-      <Space
-        direction="horizontal"
-        style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}
-      >
+      <Space direction="horizontal" style={styles.cardSpace}>
         <Statistic
           title="Status"
           value={workOrder.status}
@@ -54,24 +53,17 @@ export function WorkOrderPage() {
       <Divider />
       <Row>
         <Col flex={1}>
-          <Typography.Title level={3} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Typography.Title level={3} style={styles.title}>
             Users
           </Typography.Title>
-          <Space
-            size={16}
-            wrap
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <Space size={16} wrap style={styles.colSpace}>
             {users.map(({ id, name }) => (
               <EntityCard key={id} id={id} route={ROUTE.USERS} name={name} />
             ))}
           </Space>
         </Col>
         <Col flex={2}>
-          <Typography.Title style={{ display: 'flex', justifyContent: 'center' }} level={3}>
+          <Typography.Title style={styles.title} level={3}>
             Checklist
           </Typography.Title>
 
@@ -98,3 +90,19 @@ export function WorkOrderPage() {
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  cardSpace: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+  },
+  colSpace: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  title: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+})

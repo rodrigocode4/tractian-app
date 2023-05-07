@@ -1,7 +1,9 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, List, Space, Typography } from 'antd'
+import { Card, Space, Typography } from 'antd'
+import { List } from '~/components/list'
 import { PageContainer } from '~/components/page-container'
+import { makeStyles } from '~/infrastructure/styles'
 import { getCompanyById } from '~/modules/companies/companies.services'
 import { ROUTE } from '~/modules/constants.routes'
 import { getUnitById } from '~/modules/units/units.services'
@@ -31,27 +33,16 @@ export async function loader() {
 export function UsersPage() {
   const { users } = useLoaderData() as UsersLoaderDataType
   const navigate = useNavigate()
+  const styles = useStyles()
 
   return (
     <PageContainer hasBgColor={false}>
       <List
-        grid={{
-          gutter: 16,
-          xs: 1,
-          sm: 1,
-          md: 2,
-          lg: 2,
-          xl: 3,
-          xxl: 4,
-        }}
         dataSource={users}
         renderItem={(item) => (
-          <List.Item>
-            <Card onClick={() => navigate(`${ROUTE.USERS}/${item.id}`)} hoverable title={item.name}>
-              <Space
-                direction="vertical"
-                style={{ display: 'flex', justifyContent: 'space-between' }}
-              >
+          <List.Item onClick={() => navigate(`${ROUTE.USERS}/${item.id}`)}>
+            <Card hoverable title={item.name}>
+              <Space direction="vertical" style={styles.cardSpace}>
                 <Space direction="horizontal" key={1}>
                   <Typography.Text type="secondary">Email: </Typography.Text>
                   <Typography.Text type="secondary" strong>
@@ -78,3 +69,10 @@ export function UsersPage() {
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  cardSpace: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+})

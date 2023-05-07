@@ -34,7 +34,7 @@
     "import/no-import-module-exports": "error",
     "import/newline-after-import": "error",
     "import/group-exports": "off",
-    "import/exports-last": "error",
+    "import/exports-last": "off",
     "import/no-useless-path-segments": [
       "error",
       {

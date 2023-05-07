@@ -4,6 +4,7 @@ import { Col, Divider, Progress, Row, Space, Statistic, Typography, theme } from
 import { EntityCard } from '~/components/entity-card'
 import { PageContainer } from '~/components/page-container'
 import { Palette } from '~/infrastructure/palette'
+import { makeStyles } from '~/infrastructure/styles'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { getColorStatus, getTextStatus } from '../assets.helpers'
@@ -18,6 +19,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export function AssetPage() {
   const { asset, users, company, unit } = useLoaderData() as AssetLoaderDataType
+  const styles = useStyles()
 
   const {
     token: { colorInfoText },
@@ -36,10 +38,7 @@ export function AssetPage() {
         />
       </Row>
       <Divider />
-      <Space
-        direction="horizontal"
-        style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start' }}
-      >
+      <Space direction="horizontal" style={styles.statisticSontainer}>
         <Statistic
           title="Status"
           value={getTextStatus(asset.status)}
@@ -66,49 +65,28 @@ export function AssetPage() {
       <Divider />
       <Row>
         <Col flex={1}>
-          <Typography.Title level={3} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Typography.Title level={3} style={styles.colTitle}>
             Users
           </Typography.Title>
-          <Space
-            size={16}
-            wrap
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <Space size={16} wrap style={styles.colSpacer}>
             {users.map(({ id, name }) => (
               <EntityCard key={id} id={id} route={ROUTE.USERS} name={name} />
             ))}
           </Space>
         </Col>
         <Col flex={1}>
-          <Typography.Title style={{ display: 'flex', justifyContent: 'center' }} level={3}>
+          <Typography.Title style={styles.colTitle} level={3}>
             Company
           </Typography.Title>
-          <Space
-            size={16}
-            wrap
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <Space size={16} wrap style={styles.colSpacer}>
             <EntityCard id={company.id} route={ROUTE.COMPANIES} name={company.name} />
           </Space>
         </Col>
         <Col flex={1}>
-          <Typography.Title style={{ display: 'flex', justifyContent: 'center' }} level={3}>
+          <Typography.Title style={styles.colTitle} level={3}>
             Unit
           </Typography.Title>
-          <Space
-            size={16}
-            wrap
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <Space size={16} wrap style={styles.colSpacer}>
             <EntityCard id={unit.id} route={ROUTE.UNITS} name={unit.name} />
           </Space>
         </Col>
@@ -116,3 +94,19 @@ export function AssetPage() {
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  statisticSontainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+  },
+  colTitle: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  colSpacer: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+})

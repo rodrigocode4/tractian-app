@@ -4,6 +4,7 @@ import { useNavigation } from 'react-router-dom'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Layout, Spin, theme } from 'antd'
 import { BasicProps } from 'antd/es/layout/layout'
+import { makeStyles } from '~/infrastructure/styles'
 
 interface Props extends BasicProps {
   children?: React.ReactNode
@@ -12,6 +13,7 @@ interface Props extends BasicProps {
 
 export function PageContainer({ children, hasBgColor = true, ...restProps }: Props) {
   const navigation = useNavigation()
+  const styles = useStyles()
 
   const {
     token: { colorBgContainer },
@@ -22,15 +24,11 @@ export function PageContainer({ children, hasBgColor = true, ...restProps }: Pro
       size="large"
       spinning={navigation.state !== 'idle'}
       indicator={<LoadingOutlined />}
-      style={{
-        minHeight: '100vh',
-      }}
+      style={{}}
     >
       <Layout
         style={{
-          minHeight: '100vh',
-          minWidth: '100%',
-          paddingTop: 16,
+          ...styles.container,
           backgroundColor: hasBgColor ? colorBgContainer : undefined,
         }}
         {...restProps}
@@ -40,3 +38,14 @@ export function PageContainer({ children, hasBgColor = true, ...restProps }: Pro
     </Spin>
   )
 }
+
+const useStyles = makeStyles({
+  container: {
+    minHeight: '100vh',
+    minWidth: '100%',
+    paddingTop: 16,
+  },
+  spin: {
+    minHeight: '100vh',
+  },
+})

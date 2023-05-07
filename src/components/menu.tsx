@@ -50,7 +50,11 @@ export function Menu() {
   const { pathname } = useLocation()
 
   return (
-    <Layout.Sider collapsible collapsed={collapsed} onCollapse={(valueCollapse) => setCollapsed(valueCollapse)}>
+    <Layout.Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(valueCollapse) => setCollapsed(valueCollapse)}
+    >
       <Logo />
       <MenuAndt
         theme="dark"

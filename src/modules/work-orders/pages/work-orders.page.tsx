@@ -1,7 +1,9 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, List, Space, Typography } from 'antd'
+import { Card, Space, Typography } from 'antd'
+import { List } from '~/components/list'
 import { PageContainer } from '~/components/page-container'
+import { makeStyles } from '~/infrastructure/styles'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { getAllWorkOrders } from '../work-orders.services'
@@ -15,21 +17,12 @@ export async function loader() {
 
 export function WorkOrdersPage() {
   const { workOrders } = useLoaderData() as WorkOrdersLoaderDataType
-
   const navigate = useNavigate()
+  const styles = useStyles()
 
   return (
     <PageContainer hasBgColor={false}>
       <List
-        grid={{
-          gutter: 16,
-          xs: 1,
-          sm: 1,
-          md: 2,
-          lg: 2,
-          xl: 3,
-          xxl: 4,
-        }}
         dataSource={workOrders}
         renderItem={(item) => (
           <List.Item
@@ -57,10 +50,7 @@ export function WorkOrdersPage() {
                 </Space>,
               ]}
             >
-              <Space
-                direction="vertical"
-                style={{ display: 'flex', justifyContent: 'space-between' }}
-              >
+              <Space direction="vertical" style={styles.cardSpace}>
                 <Space direction="horizontal" align="baseline">
                   <Typography.Text style={{ wordBreak: 'normal' }} type="secondary">
                     Description:{' '}
@@ -77,3 +67,10 @@ export function WorkOrdersPage() {
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  cardSpace: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+})

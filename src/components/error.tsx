@@ -4,6 +4,7 @@ import { Button, Result, Typography } from 'antd'
 import { Footer } from 'antd/es/layout/layout'
 import { ResultStatusType } from 'antd/es/result'
 import { isAxiosError } from 'axios'
+import { makeStyles } from '~/infrastructure/styles'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { PageContainer } from './page-container'
@@ -11,6 +12,7 @@ import { PageContainer } from './page-container'
 export function Error() {
   const error = useRouteError()
   const natigate = useNavigate()
+  const styles = useStyles()
 
   const handleGoHome = () => natigate(ROUTE.ROOT)
 
@@ -18,14 +20,7 @@ export function Error() {
   console.log(error)
 
   return (
-    <PageContainer
-      style={{
-        minHeight: '100vh',
-        minWidth: '100vw',
-        paddingTop: 0,
-        justifyContent: 'center',
-      }}
-    >
+    <PageContainer style={styles.container}>
       {isAxiosError(error) ? (
         <Result
           status={error.status as ResultStatusType}
@@ -49,9 +44,24 @@ export function Error() {
           }
         />
       )}
-      <Footer style={{ textAlign: 'center', position: 'fixed', bottom: '0px', minWidth: '100%' }}>
+      <Footer style={styles.footer}>
         <Typography.Link>Tractian App</Typography.Link>
       </Footer>
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  container: {
+    minHeight: '100vh',
+    minWidth: '100vw',
+    paddingTop: 0,
+    justifyContent: 'center',
+  },
+  footer: {
+    textAlign: 'center',
+    position: 'fixed',
+    bottom: '0px',
+    minWidth: '100%',
+  },
+})

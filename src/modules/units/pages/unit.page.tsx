@@ -2,6 +2,7 @@ import { LoaderFunctionArgs, json, useLoaderData, useNavigate } from 'react-rout
 
 import { Card, Col, Row, Space, Typography } from 'antd'
 import { PageContainer } from '~/components/page-container'
+import { makeStyles } from '~/infrastructure/styles'
 import { getCompanyById } from '~/modules/companies/companies.services'
 import { ROUTE } from '~/modules/constants.routes'
 import { getUnitById } from '~/modules/units/units.services'
@@ -23,28 +24,21 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export function UnitPage() {
   const { unit } = useLoaderData() as UnitLoaderDataType
-
   const navigate = useNavigate()
+  const styles = useStyles()
 
   return (
     <PageContainer>
-      <Typography.Title style={{ alignSelf: 'center' }}>{unit.name}</Typography.Title>
+      <Typography.Title style={styles.title}>{unit.name}</Typography.Title>
       <Row>
         <Col flex={1}>
-          <Space
-            size={16}
-            wrap
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+          <Space size={16} wrap style={styles.spaceRow}>
             <Card
               title="Company"
               hoverable
               onClick={() => navigate(`${ROUTE.COMPANIES}/${unit.companyId}`)}
             >
-              <Typography.Text style={{ alignSelf: 'center' }}>{unit.companyName}</Typography.Text>
+              <Typography.Text style={styles.text}>{unit.companyName}</Typography.Text>
             </Card>
           </Space>
         </Col>
@@ -52,3 +46,17 @@ export function UnitPage() {
     </PageContainer>
   )
 }
+
+const useStyles = makeStyles({
+  title: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  text: {
+    alignSelf: 'center',
+  },
+  spaceRow: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+})
