@@ -44,13 +44,13 @@ const menuItems: MenuProps['items'] = [
 ]
 
 export function Menu() {
-  const [collapsed, setCollapsed] = React.useState(false)
+  const [collapsed, setCollapsed] = React.useState(true)
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
   return (
-    <Layout.Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+    <Layout.Sider collapsible collapsed={collapsed} onCollapse={(valueCollapse) => setCollapsed(valueCollapse)}>
       <Logo />
       <MenuAndt
         theme="dark"
