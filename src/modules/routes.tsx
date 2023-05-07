@@ -21,6 +21,10 @@ const routerConfig: RouteObject[] = [
     element: <Root />,
     children: [...AssetsRoute, ...UsersRoute, ...UnitsRoute, ...CompaniesRoute, ...WorkOrdersRoute],
   },
+  {
+    path: '*',
+    element: <Error />,
+  },
 ]
 
 const router = createBrowserRouter(routerConfig)

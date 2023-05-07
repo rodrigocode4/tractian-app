@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs, json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, Col, Layout, Row, Space, Typography, theme } from 'antd'
+import { Card, Col, Row, Space, Typography } from 'antd'
+import { PageContainer } from '~/components/page-container'
 import { getCompanyById } from '~/modules/companies/companies.services'
 import { ROUTE } from '~/modules/constants.routes'
 import { getUnitById } from '~/modules/units/units.services'
@@ -28,14 +29,8 @@ export function UserPage() {
 
   const navigate = useNavigate()
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken()
-
   return (
-    <Layout
-      style={{ minHeight: '100%', minWidth: '100%', padding: 16, background: colorBgContainer }}
-    >
+    <PageContainer>
       <Typography.Title style={{ alignSelf: 'center' }}>{user.name}</Typography.Title>
       <Row>
         <Col flex={1}>
@@ -63,6 +58,6 @@ export function UserPage() {
           </Space>
         </Col>
       </Row>
-    </Layout>
+    </PageContainer>
   )
 }

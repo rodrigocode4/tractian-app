@@ -1,8 +1,9 @@
 import { LoaderFunctionArgs, json, useLoaderData } from 'react-router-dom'
 
 import { CheckCircleOutlined, ClockCircleOutlined } from '@ant-design/icons'
-import { Avatar, Col, Divider, Layout, List, Row, Space, Statistic, Typography, theme } from 'antd'
+import { Avatar, Col, Divider, List, Row, Space, Statistic, Typography, theme } from 'antd'
 import { EntityCard } from '~/components/entity-card'
+import { PageContainer } from '~/components/page-container'
 import { Palette } from '~/infrastructure/palette'
 import { getAssetById } from '~/modules/assets/assets.services'
 import { ROUTE } from '~/modules/constants.routes'
@@ -27,13 +28,11 @@ export function WorkOrderPage() {
   const { workOrder, asset, users } = useLoaderData() as WorkOrderLoaderDataType
 
   const {
-    token: { colorBgContainer, colorInfoText },
+    token: { colorInfoText },
   } = theme.useToken()
 
   return (
-    <Layout
-      style={{ minHeight: '100%', minWidth: '100%', padding: 16, background: colorBgContainer }}
-    >
+    <PageContainer>
       <Typography.Title style={{ alignSelf: 'center' }}>{workOrder.title}</Typography.Title>
       <Divider />
       <Space
@@ -96,6 +95,6 @@ export function WorkOrderPage() {
           />
         </Col>
       </Row>
-    </Layout>
+    </PageContainer>
   )
 }

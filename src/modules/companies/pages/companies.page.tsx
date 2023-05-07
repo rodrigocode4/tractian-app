@@ -1,6 +1,7 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, Layout, List, Space, Typography } from 'antd'
+import { Card, List, Space, Typography } from 'antd'
+import { PageContainer } from '~/components/page-container'
 import { getAllCompanies } from '~/modules/companies/companies.services'
 import { ROUTE } from '~/modules/constants.routes'
 
@@ -17,7 +18,7 @@ export function CompaniesPage() {
   const navigate = useNavigate()
 
   return (
-    <Layout style={{ minHeight: '100vh', minWidth: '100%', paddingTop: 16 }}>
+    <PageContainer hasBgColor={false}>
       <List
         grid={{
           gutter: 16,
@@ -51,6 +52,6 @@ export function CompaniesPage() {
           </List.Item>
         )}
       />
-    </Layout>
+    </PageContainer>
   )
 }

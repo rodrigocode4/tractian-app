@@ -1,7 +1,8 @@
 import { LoaderFunctionArgs, json, useLoaderData } from 'react-router-dom'
 
-import { Col, Divider, Layout, Progress, Row, Space, Statistic, Typography, theme } from 'antd'
+import { Col, Divider, Progress, Row, Space, Statistic, Typography, theme } from 'antd'
 import { EntityCard } from '~/components/entity-card'
+import { PageContainer } from '~/components/page-container'
 import { Palette } from '~/infrastructure/palette'
 import { ROUTE } from '~/modules/constants.routes'
 
@@ -19,13 +20,11 @@ export function AssetPage() {
   const { asset, users, company, unit } = useLoaderData() as AssetLoaderDataType
 
   const {
-    token: { colorBgContainer, colorInfoText },
+    token: { colorInfoText },
   } = theme.useToken()
 
   return (
-    <Layout
-      style={{ minHeight: '100%', minWidth: '100%', padding: 16, background: colorBgContainer }}
-    >
+    <PageContainer>
       <Typography.Title style={{ alignSelf: 'center' }}>{asset.name}</Typography.Title>
       <Divider />
       <Row>
@@ -114,6 +113,6 @@ export function AssetPage() {
           </Space>
         </Col>
       </Row>
-    </Layout>
+    </PageContainer>
   )
 }

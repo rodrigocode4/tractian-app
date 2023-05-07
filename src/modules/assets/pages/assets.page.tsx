@@ -1,6 +1,8 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, Col, Layout, List, Space, Statistic, Typography } from 'antd'
+import { Card, Col, Space, Statistic, Typography } from 'antd'
+import { List } from '~/components/list'
+import { PageContainer } from '~/components/page-container'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { getColorHealth, getColorStatus, getTextStatus } from '../assets.helpers'
@@ -19,17 +21,8 @@ export function AssetsPage() {
   const navigate = useNavigate()
 
   return (
-    <Layout style={{ minHeight: '100vh', minWidth: '100%', paddingTop: 16 }}>
+    <PageContainer hasBgColor={false}>
       <List
-        grid={{
-          gutter: 16,
-          xs: 1,
-          sm: 1,
-          md: 2,
-          lg: 2,
-          xl: 3,
-          xxl: 4,
-        }}
         dataSource={assets}
         renderItem={(item) => (
           <List.Item>
@@ -82,6 +75,6 @@ export function AssetsPage() {
           </List.Item>
         )}
       />
-    </Layout>
+    </PageContainer>
   )
 }

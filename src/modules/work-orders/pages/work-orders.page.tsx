@@ -1,6 +1,7 @@
 import { json, useLoaderData, useNavigate } from 'react-router-dom'
 
-import { Card, Layout, List, Space, Typography } from 'antd'
+import { Card, List, Space, Typography } from 'antd'
+import { PageContainer } from '~/components/page-container'
 import { ROUTE } from '~/modules/constants.routes'
 
 import { getAllWorkOrders } from '../work-orders.services'
@@ -18,7 +19,7 @@ export function WorkOrdersPage() {
   const navigate = useNavigate()
 
   return (
-    <Layout style={{ minHeight: '100vh', minWidth: '100%', paddingTop: 16 }}>
+    <PageContainer hasBgColor={false}>
       <List
         grid={{
           gutter: 16,
@@ -73,6 +74,6 @@ export function WorkOrdersPage() {
           </List.Item>
         )}
       />
-    </Layout>
+    </PageContainer>
   )
 }
